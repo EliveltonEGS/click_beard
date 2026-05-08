@@ -84,6 +84,11 @@ class UsuarioController
             echo $this->view->render('usuario/login');
             return;
         }
-        echo $this->view->render('usuario/perfil', ['usuario' => $this->clienteModel->buscarPodId($_SESSION["USUARIO"]["cliente_id"])]);
+        echo $this->view->render(
+            'usuario/perfil',
+            [
+                'usuario' => $this->clienteModel->buscarPodId($_SESSION["USUARIO"]["cliente_id"])
+            ]
+        );
     }
 }

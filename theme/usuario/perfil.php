@@ -16,7 +16,7 @@
                     </div>
 
                     <div class="form-group col-6">
-                        <label for="cfp">CPF</label>
+                        <label for="cfp">E-mail</label>
                         <input readonly type="text" name="email" id="email" value="<?= $usuario["email"] ?>" class="form-control">
                     </div>
                 </div>
