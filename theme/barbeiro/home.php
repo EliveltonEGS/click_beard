@@ -1,4 +1,4 @@
-<?php $v->layout("_theme", ["title" => "ClickBeard"]); ?>
+<?php $this->layout("_theme", ["title" => "ClickBeard"]); ?>
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -62,6 +62,6 @@
 </div>
 
 
-<?php $v->start("js"); ?>
+<?php $this->start("js"); ?>
 <script src="<?= url('/theme/assets/js/barbeiro/home.js') ?>"></script>
-<?php $v->end(); ?>
+<?php $this->end(); ?>

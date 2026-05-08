@@ -2,7 +2,12 @@
 
 namespace League\Plates\Extension;
 
-use League\Plates;
+use League\Plates\Engine;
 
-/** @deprecated Kepts for BC */
-interface ExtensionInterface extends Plates\Extension {}
+/**
+ * A common interface for extensions.
+ */
+interface ExtensionInterface
+{
+    public function register(Engine $engine);
+}

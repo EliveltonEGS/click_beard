@@ -18,7 +18,7 @@ class UsuarioController
         $this->clienteModel = new ClienteModel();
         $this->cliente = new Cliente();
 
-        $this->view = Engine::create(dirname(__DIR__, 2) . "/theme", "php");
+        $this->view = new Engine(dirname(__DIR__, 2) . "/theme", "php");
         $this->view->addData(["router" => $router]);
     }
 
@@ -29,7 +29,6 @@ class UsuarioController
 
     public function sair(): void
     {
-        session_start();
         session_destroy();
         echo $this->view->render('usuario/login');
     }
@@ -75,14 +74,12 @@ class UsuarioController
             return;
         }
 
-        session_start();
         $_SESSION["USUARIO"] = $usuario;
         echo $this->view->render('adm/home');
     }
 
     public function perfil(): void
     {
-        session_start();
         if (!isset($_SESSION["USUARIO"])) {
             echo $this->view->render('usuario/login');
             return;

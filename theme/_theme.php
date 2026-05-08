@@ -105,7 +105,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <?= $v->section("content"); ?>
+                    <?= $this->section("content"); ?>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -139,7 +139,7 @@
     <script src="<?= url('/theme/assets/js/vue.js') ?>"></script>
     <script src="<?= url('/theme/assets/bootstrap/popper.min.js') ?>"></script>
     <script src="<?= url('/theme/assets/bootstrap/bootstrap.min.js') ?>"></script>
-    <?= $v->section("js"); ?>
+    <?= $this->section("js"); ?>
 
 </body>
 

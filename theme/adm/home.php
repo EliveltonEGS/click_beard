@@ -1,4 +1,4 @@
-<?php $v->layout("_theme", ["title" => "ClickBeard"]); ?>
+<?php $this->layout("_theme", ["title" => "ClickBeard"]); ?>
 
 <div id="app" class="card shadow mb-4">
     <div class="card-header py-3">
@@ -72,7 +72,7 @@
     </div>
 </div>
 
-<?php $v->start("js"); ?>
+<?php $this->start("js"); ?>
 <script src="<?= url('/theme/assets/js/agendamento/home.js') ?>"></script>
 
-<?php $v->end(); ?>
+<?php $this->end(); ?>

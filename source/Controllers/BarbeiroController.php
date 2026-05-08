@@ -16,6 +16,7 @@ class BarbeiroController
     private $especialidadeModel;
     private $barbeiroModel;
     private $barbeiro;
+    private $especialidade;
 
     public function __construct($router)
     {
@@ -25,7 +26,7 @@ class BarbeiroController
         $this->barbeiro = new Barbeiro();
         $this->especialidade = new Especialidade();
 
-        $this->view = Engine::create(dirname(__DIR__, 2) . "/theme", "php");
+        $this->view = new Engine(dirname(__DIR__, 2) . "/theme", "php");
         $this->view->addData(["router" => $router]);
     }
 
@@ -36,7 +37,6 @@ class BarbeiroController
 
     public function home(): void
     {
-        session_start();
         if (!isset($_SESSION["USUARIO"])) {
             echo $this->view->render('usuario/login');
             return;
@@ -47,7 +47,6 @@ class BarbeiroController
 
     public function novo()
     {
-        session_start();
         if (!isset($_SESSION["USUARIO"])) {
             echo $this->view->render('usuario/login');
             return;

@@ -18,13 +18,12 @@ class EspecialidadeController
         $this->especialidadeModel = new EspecialidadeModel();
         $this->especialidade = new Especialidade();
 
-        $this->view = Engine::create(dirname(__DIR__, 2) . "/theme", "php");
+        $this->view = new Engine(dirname(__DIR__, 2) . "/theme", "php");
         $this->view->addData(["router" => $router]);
     }
 
     public function home(): void
     {
-        session_start();
         if (!isset($_SESSION["USUARIO"])) {
             echo $this->view->render('usuario/login');
             return;
@@ -35,7 +34,6 @@ class EspecialidadeController
 
     public function novo()
     {
-        session_start();
         if (!isset($_SESSION["USUARIO"])) {
             echo $this->view->render('usuario/login');
             return;
@@ -46,7 +44,6 @@ class EspecialidadeController
 
     public function editar(array $data): void
     {
-        session_start();
         if (!isset($_SESSION["USUARIO"])) {
             echo $this->view->render('usuario/login');
             return;

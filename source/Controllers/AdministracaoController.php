@@ -2,22 +2,23 @@
 
 namespace Source\Controllers;
 
+use CoffeeCode\Router\Router;
 use League\Plates\Engine;
 
 class AdministracaoController
 {
 
-    private $view;
+    private Engine $view;
 
-    public function __construct($router)
+    public function __construct(Router $router)
     {
-        $this->view = Engine::create(dirname(__DIR__, 2) . "/theme", "php");
+        $this->view = new Engine(dirname(__DIR__, 2) . "/theme", "php");
         $this->view->addData(["router" => $router]);
     }
 
+
     public function home()
     {
-        session_start();
         if (!isset($_SESSION["USUARIO"])) {
             echo $this->view->render('usuario/login');
             return;

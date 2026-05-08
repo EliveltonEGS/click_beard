@@ -4,8 +4,14 @@ use CoffeeCode\Router\Router;
 
 require __DIR__ . "/vendor/autoload.php";
 
+
+
 $router = new Router(ROOT);
+
+
 $router->namespace("Source\Controllers");
+
+
 
 #ROTAS DE USUARIO
 $router->group(null);
@@ -48,8 +54,15 @@ $router->post('/cancelar', 'AgendamentoController:cancelar', 'agendamento.cancel
 $router->get('/concluir/{id}', 'AgendamentoController:concluirAgendamento', 'agendamento.concluir');
 $router->get('/especialidade/{id}', 'AgendamentoController:especialidade', 'agendamento.especialidade');
 
+
+session_start();
+
 $router->dispatch();
+
 
 if ($router->error()) {
     var_dump($router->error());
+    var_dump($_GET['route'] ?? 'sem route');
+    var_dump($_SERVER['REQUEST_METHOD']);
+    var_dump($router);
 }

@@ -1,4 +1,4 @@
-<?php $v->layout("_theme", ["title" => "ClickBeard"]); ?>
+<?php $this->layout("_theme", ["title" => "ClickBeard"]); ?>
 
 <div id="app" class="card shadow mb-4">
     <input type="hidden" id="url_base" value="<?= ROOT; ?>">
@@ -25,7 +25,7 @@
     </div>
 </div>
 
-<?php $v->start("js"); ?>
+<?php $this->start("js"); ?>
 <script src="<?= url('/theme/assets/js/barbeiro/novo.js') ?>"></script>
 
-<?php $v->end(); ?>
+<?php $this->end(); ?>

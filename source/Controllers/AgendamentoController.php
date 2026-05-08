@@ -33,13 +33,12 @@ class AgendamentoController
         $this->horario = new Horario();
         $this->cliente = new Cliente();
 
-        $this->view = Engine::create(dirname(__DIR__, 2) . "/theme", "php");
+        $this->view = new Engine(dirname(__DIR__, 2) . "/theme", "php");
         $this->view->addData(["router" => $router]);
     }
 
     public function novo()
     {
-        session_start();
         if (!isset($_SESSION["USUARIO"])) {
             echo $this->view->render('usuario/login');
             return;
@@ -72,7 +71,6 @@ class AgendamentoController
         $this->horario->setHora($data['horario']);
         $this->horarioModel->alteraStatusHora($this->horario);
 
-        session_start();
         $dataAgendamento = "{$data['data']} {$data['horario']}";
         $cliente_id = $_SESSION["USUARIO"]["cliente_id"];
         $barbeiro_id = $data["barbeiro_id"];
@@ -95,7 +93,6 @@ class AgendamentoController
         $json = file_get_contents('php://input');
         $data = json_decode($json, true);
 
-        session_start();
         if ($_SESSION["USUARIO"]["tipo"] == "A") {
             echo json_encode($this->agendamentoModel->listaTodosAgendamentos($data['nome']));
         } else {
@@ -108,7 +105,6 @@ class AgendamentoController
         $json = file_get_contents('php://input');
         $data = json_decode($json, true);
 
-        session_start();
         if ($_SESSION["USUARIO"]["tipo"] == "A") {
             $this->agendamentoModel->cancelarAgendamento($data['agendamento_id']);
             $this->horarioModel->cancelar($data['horario_id']);
