@@ -7,7 +7,7 @@
 * Utilizei como ferramenta para gerenciar os camandos MySQL o MySQL Worckbench e também a execução do script;
 * O projeto foi desenvolvido no servidor de teste Xampp, que contém o apache, php e MairaDB(MySQL);
 * Deve ser movida a pasta do projeto para o diretório [C:\xampp\htdocs\ClickBeard_elivelton_goncalves] no ambiente windows que é o que utilizei;
-* Para executar o projeto no navegador basta start o xampp e acessar no navegador [http://localhost/ClickBeard_elivelton_goncalves/].
+* Para executar o projeto no navegador basta start o xampp e acessar no navegador [http://localhost:8090].
 
 ### Usuário ADM - login:
 email: 

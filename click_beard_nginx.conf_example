@@ -1,0 +1,23 @@
+#para usar com docker - http://localhost:8090/
+
+server {
+    listen 8090;
+    index index.php index.html;
+    root /var/www/click_beard;
+
+    location / {
+        try_files $uri $uri/ /index.php?route=$uri&$query_string;
+        
+    }
+
+    location ~ \.php$ {
+        fastcgi_pass app_click_beard:9000;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}

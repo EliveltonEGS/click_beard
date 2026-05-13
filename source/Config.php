@@ -5,7 +5,7 @@ $server_name = $_SERVER["SERVER_NAME"]; //localhost
 $script_name = explode("/", $_SERVER["SCRIPT_NAME"]); //ClickBeard_elivelton_goncalves
 
 /** BASE URL */
-define("ROOT", "http://localhost:8060");
+define("ROOT", "http://localhost:8090");
 
 /** DATABASE CONNECT */;
 define("DB_CONFIG", [
@@ -37,5 +37,5 @@ function debug($data)
 
 function writeLog($value, $logName)
 {
-    error_log(print_r($value, true) . PHP_EOL, 3, "C:/xampp/htdocs/ClickBeard_elivelton_goncalves/log/{$logName}.log");
+    error_log(print_r($value, true) . PHP_EOL, 3, __DIR__ . "/../log/{$logName}.log");
 }

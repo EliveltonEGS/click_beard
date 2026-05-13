@@ -4,10 +4,9 @@ use CoffeeCode\Router\Router;
 
 require __DIR__ . "/vendor/autoload.php";
 
-
-
 $router = new Router(ROOT);
 
+writeLog("Router initialized with ROOT: " . ROOT, "router_init");
 
 $router->namespace("Source\Controllers");
 
@@ -61,8 +60,23 @@ $router->dispatch();
 
 
 if ($router->error()) {
-    var_dump($router->error());
-    var_dump($_GET['route'] ?? 'sem route');
-    var_dump($_SERVER['REQUEST_METHOD']);
-    var_dump($router);
+    $errorCode = $router->error();
+    $requestedRoute = $_GET['route'] ?? 'N/A';
+    $requestMethod = $_SERVER['REQUEST_METHOD'];
+
+    // Log the error
+    writeLog("Router Error: {$errorCode} for route '{$requestedRoute}' with method '{$requestMethod}'", "router_errors");
+
+    // Handle different error codes
+    switch ($errorCode) {
+        case CoffeeCode\Router\Dispatch::NOT_FOUND:
+            header("HTTP/1.0 404 Not Found");
+            echo "<h1>404 Not Found</h1><p>The page you requested could not be found.</p>";
+            break;
+        default:
+            header("HTTP/1.0 500 Internal Server Error");
+            echo "<h1>Error {$errorCode}</h1><p>An unexpected error occurred.</p>";
+            break;
+    }
+    exit; // Terminate script execution after handling the error
 }
