@@ -1,12 +1,12 @@
-# ClickBeard_elivelton_goncalves
+# click_beard
 
 ### Instruções para utilização
 
 * O usuário ADM é criado no momento em que o script do banco é executado;
-* O script encontra-se em: [ClickBeard_elivelton_goncalves/docs/script_db.sql];
+* O script encontra-se em: [click_beard/docs/script_db.sql];
 * Utilizei como ferramenta para gerenciar os camandos MySQL o MySQL Worckbench e também a execução do script;
 * O projeto foi desenvolvido no servidor de teste Xampp, que contém o apache, php e MairaDB(MySQL);
-* Deve ser movida a pasta do projeto para o diretório [C:\xampp\htdocs\ClickBeard_elivelton_goncalves] no ambiente windows que é o que utilizei;
+* Deve ser movida a pasta do projeto para o diretório [C:\xampp\htdocs\click_beard] no ambiente windows que é o que utilizei;
 * Para executar o projeto no navegador basta start o xampp e acessar no navegador [http://localhost:8090].
 
 ### Usuário ADM - login:
@@ -37,5 +37,5 @@ adm
 Obs: 
 - Não foram realizado filtros e paginações pois acredito que o foco do mini sistema seria o gerenciamento de clientes e seus respectivos agendamentos de horários;
 - O CPF no cadastro de barbeiros deve ser somente números.
-- No diretório [\ClickBeard_elivelton_goncalves\docs\prints] contém alguns prints do sistema em funcionamento.
+- No diretório [\click_beard\docs\prints] contém alguns prints do sistema em funcionamento.
 - Tem partes do sistema que foi desenvolvido somente com PHP e outras partes com JavaScript para demonstrar que pode ser feito de várias formas diferentes.
